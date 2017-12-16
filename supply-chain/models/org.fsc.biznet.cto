@@ -1,0 +1,38 @@
+/**
+ * Write your model definitions here
+ */
+
+namespace org.fsc.biznet
+
+
+asset Commodity identified by commodityId {
+  o String commodityId
+  o String name
+  o String value
+  o String description
+  o Double quantity
+  o QuantityType quantityType
+  o Double costPrice
+  o Double sellingPrice
+  --> Trader owner
+
+}
+
+
+participant Trader identified by tradeId {
+    o String tradeId
+    o String firstName
+    o String lastName
+    o String email
+}
+
+enum QuantityType {
+  o KG
+  o COUNT
+}
+
+
+transaction Trade {
+    --> Commodity commodity
+    --> Trader newOwner
+}
