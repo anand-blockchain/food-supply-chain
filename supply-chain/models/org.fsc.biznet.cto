@@ -24,6 +24,7 @@ participant Trader identified by tradeId {
     o String firstName
     o String lastName
     o String email
+    o String mobile
 }
 
 enum QuantityType {
@@ -35,4 +36,15 @@ enum QuantityType {
 transaction Trade {
     --> Commodity commodity
     --> Trader newOwner
+}
+
+event TradeNotification {
+    --> Commodity commodity
+}
+
+transaction RemoveHighQuantityCommodities {
+}
+
+event RemoveNotification {
+    --> Commodity commodity
 }

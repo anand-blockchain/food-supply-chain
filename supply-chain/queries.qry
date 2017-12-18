@@ -1,0 +1,19 @@
+
+query selectCommodities {
+  description: "Select all commodities"
+  statement: SELECT org.fsc.biznet.Commodity
+}
+
+query selectCommoditiesByOwner {
+  description: "Select all commodities based on their owner"
+  statement:
+      SELECT org.fsc.biznet.Commodity
+          WHERE (owner == _$owner)
+}
+
+query selectCommoditiesWithHighQuantity {
+  description: "Select commodities based on quantity"
+  statement:
+      SELECT org.fsc.biznet.Commodity
+          WHERE (quantity > 60)
+}
